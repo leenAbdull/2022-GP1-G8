@@ -30,10 +30,12 @@ you need the following in order to run the code:
 1. Import the code.
 2. Run the command: (flutter pub get). 
 3. Start the emulator.
+4. You need to add your SHA1 to the project in the firebase (using the guide -See SDK instructions- in the firebase)
+5. After adding the SHA1, replace the (google-services.json) in the code with the new one.
 4. Run the code.
 5. Login using the given credentials.
 6. Allow the CyberPhish app any required Gmail permissions.
 
-# Login Credentials: 
+# Credentials (Login/ Firebase): 
 Email: Cyberphish.gp2022@gmail.com
 Password: CyberPhish2022GP
