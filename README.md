@@ -10,6 +10,7 @@ CyberPhish is a mobile application that gives users feedback analysis and warns 
 2. Run the the APK file.
 3. Login using the credentials.
 4. Allow the CyberPhish app any required Gmail permissions.
+5. In case you want to run the code, not the APK run the command: flutter pub 
 
 # Credentials
 Email: Cyberphish.gp2022@gmail.com
