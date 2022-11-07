@@ -1,9 +1,10 @@
-# CyberPhish
-## 2022-GP1-G8
-CyberPhish is a mobile application that gives users feedback analysis and warns them regarding an email. CyberPhish will be like a safety net that opens users’ eyes to the true purpose of the emails in their inbox.
+# 2022-GP1-G8 (CyberPhish)
 
-# Programming Languages:
-- Dart/Flutter
+## About this project:
+"CyberPhish" is a mobile application that gives users feedback analysis and warns them regarding an email. CyberPhish will be like a safety net that opens users’ eyes to the true purpose of the emails in their inbox.
+
+# Technology used in the project:
+This project developed using flutter framework, dart programming language, firebase and Gmail API.
 
 # Launching Instructions:
 1. Download the APK file on your device.
