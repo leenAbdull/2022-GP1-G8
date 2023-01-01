@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import json
 import pickle
+import sklearn
 app = Flask(__name__)
 model_body = pickle.load(open('nb.pkl', 'rb'))
 vec_body = pickle.load(open("vec.pkl", "rb"))
