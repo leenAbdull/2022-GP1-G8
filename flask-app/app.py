@@ -1,3 +1,58 @@
+import json
+from flask import Flask, request, jsonify
+import numpy as np
+import pickle
+import sklearn
+model_body = pickle.load(open('nb.pkl', 'rb'))
+vec_body = pickle.load(open("vec.pkl", "rb"))
+
+
+app = Flask(__name__)
+
+# declared an empty variable for reassignment
+response = ''
+
+
+@app.route('/', methods=['GET', 'POST'])
+def pred():
+    global response
+    # checking the request type we get from the app
+    if (request.method == 'POST'):
+        print('inn')
+        data = request.data
+        request_data = json.loads(data.decode('utf-8'))
+        subject = request_data['subject']
+        body = request_data['body']
+        features2 = " ".join([subject, body])
+
+        # re-assigning response with the name we got from the user
+        subject_phish = 'funds to share'
+        body_phish = "The University of Washington System is sharing funds for all students during this pandemic, please update your \n financial aid status to claim yours. \nLogin.uw.edu/covid-19-aid-update\n For instructions on Accepting Your Financial Aid on https://login.uw.edu/login/login./.\n Regards,\n Assistant Professor \nUniversity of Washington"
+        features = " ".join([subject_phish, body_phish])
+
+        subject_encoded = vec_body.transform([features2]).reshape(1, -1)
+        prediction = model_body.predict(subject_encoded)
+
+        # response = f"Hi! this Post "+pred_sub+"is Python"
+        response = f'Post {prediction} \n {subject} \n {body} '
+        print(response)
+        return jsonify({'pred': response})  # to avoid a type error
+    else:
+        # sending data back to your frontend app
+        subject_phish = 'funds to share'
+        body_phish = "The University of Washington System is sharing funds for all students during this pandemic, please update your \n financial aid status to claim yours. \nLogin.uw.edu/covid-19-aid-update\n For instructions on Accepting Your Financial Aid on https://login.uw.edu/login/login./.\n Regards,\n Assistant Professor \nUniversity of Washington"
+        features = " ".join([subject_phish, body_phish])
+
+        subject_encoded = vec_body.transform([features2]).reshape(1, -1)
+        prediction = model_body.predict(subject_encoded)
+
+        # response = f"Hi! this Post "+pred_sub+"is Python"
+        response = f'get {prediction} \n {subject} \n {body} '
+        print(response)       
+        return jsonify({'pred': response})
+
+
+'''
 from flask import Flask, request, jsonify
 import json
 import pickle
@@ -23,3 +78,4 @@ def hello_world():
         response = pred_sub
         return jsonify({'pred': 'response' })
 #         return 'respone {response}'
+'''
