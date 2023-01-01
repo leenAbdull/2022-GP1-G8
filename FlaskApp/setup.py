@@ -63,48 +63,7 @@ def pred():
         print(pred_sub3)
         print(pred_sub4)
 
-        '''
-        # tp = np.array(subject)
-        # fp = np.array(body)
-        # features = np.vstack((tp, fp)).T
-        subject_encoded = vec.transform([subject]).reshape(1, -1)
-        body_encoded = vec.transform([body]).reshape(1, -1)
-        inp = [subject_encoded]
-
-        prediction = model.predict(subject_encoded)
-        prediction2 = model.predict(body_encoded)
-        '''
-        '''
-                le = preprocessing.LabelEncoder()
-
-                def remove_punctuation(text):
-            punctuationfree = "".join(
-                [i for i in text if i not in string.punctuation])
-            return punctuationfree
-
-        # body = (lambda x: remove_punctuation(x))
-        # subject = np.array([subject])
-        # body = np.array([body])
-
-        # SUBJECT_encoded = le.transform(subject)
-        # BODY_encoded = le.transform(body)
-        # print(SUBJECT_encoded)
-        # print(BODY_encoded)
-
-        # tp = np.array(SUBJECT_encoded)
-        # fp = np.array(BODY_encoded)
-        # features = np.vstack((tp, fp)).T
-
-        # from sklearn.feature_extraction.text import CountVectorizer
-        # vectorizer = CountVectorizer()
-        # message_bow = vectorizer.fit_transform(body)
-        # # message_bow.toarray()
-
-        # input_cols = [features, message_bow]
-        # # input_cols.reshape(-1, 1)
-
-        # prediction = model.predict(message_bow)
-        '''
+     
 
         response = f'Hi! this Post {pred_sub} {pred_sub1} {pred_sub2} is Python'
         print(response)
