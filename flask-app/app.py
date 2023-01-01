@@ -25,8 +25,8 @@ def pred():
         body = request_data['body']
         features = " ".join([subject, body])
 
-        subject_encoded = vec_body.transform([features]).reshape(1, -1)
-        prediction = model_body.predict(subject_encoded)
+        features_encoded = vec_body.transform([features]).reshape(1, -1)
+        prediction = model_body.predict(features_encoded)
 
         # response = f"Hi! this Post "+pred_sub+"is Python"
         response = f'Post {prediction} \n {subject} \n {body} '
@@ -34,15 +34,15 @@ def pred():
         return jsonify({'pred': response})  # to avoid a type error
     else:
         # sending data back to your frontend app
-        subject_phish = 'funds to share'
-        body_phish = "The University of Washington System is sharing funds for all students during this pandemic, please update your \n financial aid status to claim yours. \nLogin.uw.edu/covid-19-aid-update\n For instructions on Accepting Your Financial Aid on https://login.uw.edu/login/login./.\n Regards,\n Assistant Professor \nUniversity of Washington"
-        features = " ".join([subject_phish, body_phish])
+        subject = 'funds to share'
+        body = "The University of Washington System is sharing funds for all students during this pandemic, please update your \n financial aid status to claim yours. \nLogin.uw.edu/covid-19-aid-update\n For instructions on Accepting Your Financial Aid on https://login.uw.edu/login/login./.\n Regards,\n Assistant Professor \nUniversity of Washington"
+        features = " ".join([subject, body])
 
-        subject_encoded = vec_body.transform([features]).reshape(1, -1)
-        prediction = model_body.predict(subject_encoded)
+        features_encoded = vec_body.transform([features]).reshape(1, -1)
+        prediction = model_body.predict(features_encoded)
 
         # response = f"Hi! this Post "+pred_sub+"is Python"
-        response = f'get {prediction} \n {subject} \n {body} '
+        response = f'get phishy {prediction} \n {subject} \n {body} '
         print(response)       
         return jsonify({'pred': response})
 
