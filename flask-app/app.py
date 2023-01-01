@@ -21,5 +21,5 @@ def hello_world():
         pred_sub = model_body.predict(subject_encoded)
            
         response = pred_sub
-        return jsonify({'pred': str(Data(response)) })
+        return jsonify({'pred': 'response' })
 #         return 'respone {response}'
