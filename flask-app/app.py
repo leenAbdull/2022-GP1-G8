@@ -20,6 +20,5 @@ def hello_world():
         pred_sub = model_body.predict(subject_encoded)
            
         response = pred_sub
-        print(response)
-        return jsonify({'pred': response})  # to avoid a type error
-#         return response
+        #return jsonify({'pred': response})  # to avoid a type error
+        return response
