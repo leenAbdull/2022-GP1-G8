@@ -1,9 +1,10 @@
-from flask import Flask
+from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 
 @app.route('/', methods=['GET', 'POST'])
 def hello_world():
+    if (request.method == 'GET'):
         print('inn')
         # re-assigning response with the name we got from the user
         subject_phish = 'funds to share'
@@ -15,5 +16,5 @@ def hello_world():
            
         response = f'Hi! this'+features+ 'is Python'
         print(response)
-        #return jsonify({'pred': response})  # to avoid a type error
-        return response
+        return jsonify({'pred': response})  # to avoid a type error
+#         return response
