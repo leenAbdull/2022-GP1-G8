@@ -18,4 +18,4 @@ def hello_world():
         response = f'Hi! this Post is Python'
         print(response)
         #return jsonify({'pred': response})  # to avoid a type error
-        return 'Hello World Again'
+        return response
