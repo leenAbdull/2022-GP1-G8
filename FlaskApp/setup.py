@@ -3,8 +3,8 @@ from flask import Flask, request, jsonify
 # import numpy as np
 import pickle
 import string
-model_body = pickle.load(open('nb.pkl', 'rb'))
-vec_body = pickle.load(open("vec.pkl", "rb"))
+# model_body = pickle.load(open('nb.pkl', 'rb'))
+# vec_body = pickle.load(open("vec.pkl", "rb"))
 
 # model_sub = pickle.load(open('nb_sub.pkl', 'rb'))
 # vec_sub = pickle.load(open("vec_sub.pkl", "rb"))
@@ -25,11 +25,11 @@ def pred():
         body_phish = "The University of Washington System is sharing funds for all students during this pandemic, please update your \n financial aid status to claim yours. \nLogin.uw.edu/covid-19-aid-update\n For instructions on Accepting Your Financial Aid on https://login.uw.edu/login/login./.\n Regards,\n Assistant Professor \nUniversity of Washington"
         features = "{subject_phish} {body_phish}"
 
-        subject_encoded = vec_body.transform([features]).reshape(1, -1)
-        pred_sub = model_body.predict(subject_encoded)
+#         subject_encoded = vec_body.transform([features]).reshape(1, -1)
+#         pred_sub = model_body.predict(subject_encoded)
            
 
-        response = f'Hi! this Post {pred_sub} is Python'
+        response = f'Hi! this Post is Python'
         print(response)
         return jsonify({'pred': response})  # to avoid a type error
     else:
