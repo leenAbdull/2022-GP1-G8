@@ -29,7 +29,7 @@ def pred():
         prediction = model_body.predict(features_encoded)
 
         # response = f"Hi! this Post "+pred_sub+"is Python"
-        response = f'Post {prediction} \n {subject} \n {body} '
+        response = f'{prediction}'
         print(response)
         return jsonify({'pred': response})  # to avoid a type error
     else:
@@ -42,7 +42,7 @@ def pred():
         prediction = model_body.predict(features_encoded)
 
         # response = f"Hi! this Post "+pred_sub+"is Python"
-        response = f'get phishy {prediction} \n {subject} \n {body} '
+        response = f'{prediction}'
         print(response)       
         return jsonify({'pred': response})
 
