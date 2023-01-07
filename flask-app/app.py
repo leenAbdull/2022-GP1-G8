@@ -3,8 +3,10 @@ from flask import Flask, request, jsonify
 import numpy as np
 import pickle
 import sklearn
-model_body = pickle.load(open('nb.pkl', 'rb'))
-vec_body = pickle.load(open("vec.pkl", "rb"))
+model = pickle.load(open('nb.pkl', 'rb'))
+# vec_body = pickle.load(open("vec.pkl", "rb"))
+vec = pickle.load(open("bag_words.pkl", "rb"))
+
 
 
 app = Flask(__name__)
@@ -24,9 +26,12 @@ def pred():
         subject = request_data['subject']
         body = request_data['body']
         features = " ".join([subject, body])
+        encode = vec.transform([features]).toarray()
+        bag_of_words = pd.DataFrame(
+                encode, columns=vec.get_feature_names_out())
 
-        features_encoded = vec_body.transform([features]).reshape(1, -1)
-        prediction = model_body.predict(features_encoded)
+        # features_encoded = vec.transform([encode]).reshape(1, -1)
+        prediction = model.predict(encode)
 
         # response = f"Hi! this Post "+pred_sub+"is Python"
         response = f'{prediction}'
@@ -38,8 +43,13 @@ def pred():
         body = "The University of Washington System is sharing funds for all students during this pandemic, please update your \n financial aid status to claim yours. \nLogin.uw.edu/covid-19-aid-update\n For instructions on Accepting Your Financial Aid on https://login.uw.edu/login/login./.\n Regards,\n Assistant Professor \nUniversity of Washington"
         features = " ".join([subject, body])
 
-        features_encoded = vec_body.transform([features]).reshape(1, -1)
-        prediction = model_body.predict(features_encoded)
+        features = " ".join([subject, body])
+        encode = vec.transform([features]).toarray()
+        bag_of_words = pd.DataFrame(
+                encode, columns=vec.get_feature_names_out())
+
+        prediction = model.predict(encode)
+
 
         # response = f"Hi! this Post "+pred_sub+"is Python"
         response = f'{prediction}'
