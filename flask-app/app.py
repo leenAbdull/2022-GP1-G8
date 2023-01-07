@@ -3,6 +3,7 @@ from flask import Flask, request, jsonify
 import numpy as np
 import pickle
 import sklearn
+import pandas as pd
 model = pickle.load(open('nb.pkl', 'rb'))
 # vec_body = pickle.load(open("vec.pkl", "rb"))
 vec = pickle.load(open("bag_words.pkl", "rb"))
