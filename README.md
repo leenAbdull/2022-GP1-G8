@@ -36,6 +36,4 @@ you need the following in order to run the code:
 5. Login using the given credentials.
 6. Allow the CyberPhish app any required Gmail permissions.
 
-# Credentials (Login/ Firebase): 
-Email: Cyberphish.gp2022@gmail.com
-Password: CyberPhish2022GP
+
