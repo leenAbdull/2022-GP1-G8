@@ -55,7 +55,8 @@ def pred():
                Vocab_list[bag_of_words[vector].name] = bag_of_words[vector].values[0]
 
         prediction = f'{prediction}'
-        response = f'{Vocab_list}'        print(response)       
+        response = f'{Vocab_list}'        
+        print(response)       
         return jsonify({'prediction': prediction[1],
                         'vocabulary': response
                         })
