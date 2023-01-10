@@ -42,7 +42,7 @@ def pred():
         # sending data back to your frontend app
         subject = 'funds to share'
         body = "The University of Washington System is sharing funds for all students during this pandemic, please update your \n financial aid status to claim yours. \nLogin.uw.edu/covid-19-aid-update\n For instructions on Accepting Your Financial Aid on https://login.uw.edu/login/login./.\n Regards,\n Assistant Professor \nUniversity of Washington"
-
+        Vocab_list = {}
         features = " ".join([subject, body])
         encode = vec.transform([features]).toarray()
         bag_of_words = pd.DataFrame(
