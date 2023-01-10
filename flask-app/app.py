@@ -49,12 +49,16 @@ def pred():
                 encode, columns=vec.get_feature_names_out())
 
         prediction = model.predict(encode)
+        
+        for vector in bag_of_words:
+           if (bag_of_words[vector].values > 0):
+               Vocab_list[bag_of_words[vector].name] = bag_of_words[vector].values[0]
 
-
-        # response = f"Hi! this Post "+pred_sub+"is Python"
-        response = f'{prediction}... {bag_of_words} '
-        print(response)       
-        return jsonify({'pred': response})
+        prediction = f'{prediction}'
+        response = f'{Vocab_list}'        print(response)       
+        return jsonify({'prediction': prediction[1],
+                        'vocabulary': response
+                        })
 
 
 '''
