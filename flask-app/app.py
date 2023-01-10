@@ -34,15 +34,19 @@ def pred():
         prediction = model.predict(encode)
         Vocab_list = {}
 
-        for vector in bag_of_words:
-           if (bag_of_words[vector].values > 0):
-               Vocab_list[bag_of_words[vector].name] = bag_of_words[vector].values[0]
+#         for vector in bag_of_words:
+#            if (bag_of_words[vector].values > 0):
+#                Vocab_list[bag_of_words[vector].name] = bag_of_words[vector].values[0]
+
+#         prediction = f'{prediction}'
+#         response = f'{Vocab_list}'        
+#         print(response)       
+#         return jsonify({'prediction': prediction[1],
+#                         'vocabulary': response
+#                         }) 
 
         prediction = f'{prediction}'
-        response = f'{Vocab_list}'        
-        print(response)       
-        return jsonify({'prediction': prediction[1],
-                        'vocabulary': response
+        return jsonify({'prediction': prediction[1]
                         }) 
     else:
         # sending data back to your frontend app
